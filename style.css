@@ -1,0 +1,96 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+h1 { margin-bottom: 8px; }
+.subtitle { margin-bottom: 16px; color: #555; }
+.error { color: red; margin-top: 8px; min-height: 20px; }
+
+/* Setup */
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.player-row label { width: 70px; }
+.player-row input { padding: 4px 8px; flex: 1; }
+.player-row select { padding: 4px; }
+
+.setup-actions { display: flex; gap: 10px; margin-top: 12px; }
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Game header */
+#game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Stats panel */
+#stats-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.player-stat-card {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  font-size: 14px;
+}
+.player-stat-card strong { font-size: 16px; margin-bottom: 2px; }
+
+/* Scenario area */
+#scenario-area { margin-top: 16px; }
+#draw-scenario-btn { font-size: 20px; padding: 16px 32px; }
+
+#scenario-display { display: none; margin-top: 16px; }
+#scenario-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+#response-buttons { display: flex; gap: 12px; }
+.response-btn { flex: 1; padding: 12px; font-size: 16px; font-weight: bold; }
+
+/* Game Over */
+#screen-gameover h1 { margin-bottom: 8px; }
+#final-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}

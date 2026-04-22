@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Review</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- Setup Screen -->
+    <div id="screen-setup" class="screen active">
+      <h1>Performance Review</h1>
+      <p class="subtitle">2–5 players &mdash; enter names and pick a color</p>
+      <div id="player-inputs"></div>
+      <div class="setup-actions">
+        <button id="add-player-btn">+ Add Player</button>
+        <button id="start-game-btn">Start Game</button>
+      </div>
+      <p id="setup-error" class="error"></p>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="screen-game" class="screen">
+      <div id="game-header">
+        <span id="round-display">Round 1 / 10</span>
+        <span id="turn-display">Player's Turn</span>
+      </div>
+
+      <div id="stats-panel"></div>
+
+      <div id="scenario-area">
+        <button id="draw-scenario-btn">DRAW SCENARIO</button>
+
+        <div id="scenario-display">
+          <p id="scenario-text"></p>
+          <div id="response-buttons">
+            <button class="response-btn" data-choice="SAFE">SAFE</button>
+            <button class="response-btn" data-choice="KNOWLEDGE">KNOWLEDGE</button>
+            <button class="response-btn" data-choice="BOLD">BOLD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="screen-gameover" class="screen">
+      <h1>Game Over</h1>
+      <p class="subtitle">Final Stats</p>
+      <div id="final-stats"></div>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
