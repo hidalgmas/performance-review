@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Performance Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,27 +14,34 @@
 
     <!-- Setup Screen -->
     <div id="screen-setup" class="screen active">
-      <h1>Performance Review</h1>
-      <p class="subtitle">2–5 players &mdash; enter names and pick a color</p>
-      <div id="player-inputs"></div>
-      <div class="setup-actions">
-        <button id="add-player-btn">+ Add Player</button>
-        <button id="start-game-btn">Start Game</button>
+      <h1 class="game-logo">PERFORMANCE<br>REVIEW</h1>
+      <p class="game-tagline">A Management Simulation</p>
+      <div class="setup-panel">
+        <p class="setup-panel-title">PLAYER SETUP</p>
+        <p class="subtitle">2–5 players &mdash; enter names and pick a color</p>
+        <div id="player-inputs"></div>
+        <div class="setup-actions">
+          <button id="add-player-btn">+ ADD PLAYER</button>
+          <button id="start-game-btn">START GAME</button>
+        </div>
+        <p id="setup-error" class="error"></p>
       </div>
-      <p id="setup-error" class="error"></p>
     </div>
 
     <!-- Game Screen -->
     <div id="screen-game" class="screen">
       <div id="game-header">
-        <span id="round-display">Round 1 / 10</span>
+        <span id="round-display">ROUND 1 / 10</span>
         <span id="turn-display">Player's Turn</span>
       </div>
 
       <div id="stats-panel"></div>
 
       <div id="scenario-area">
-        <button id="draw-scenario-btn">DRAW SCENARIO</button>
+        <div id="action-buttons">
+          <button id="draw-scenario-btn">DRAW SCENARIO</button>
+          <button id="audit-btn">AUDIT (1 LEFT)</button>
+        </div>
 
         <div id="scenario-display">
           <p id="scenario-text"></p>
@@ -46,12 +56,48 @@
 
     <!-- Game Over Screen -->
     <div id="screen-gameover" class="screen">
-      <h1>Game Over</h1>
-      <p class="subtitle">Final Stats</p>
+      <h1>GAME OVER</h1>
+      <p class="subtitle">Final Results</p>
       <div id="final-stats"></div>
+      <button id="play-again-btn">PLAY AGAIN</button>
     </div>
 
   </div>
+
+  <!-- Question Modal -->
+  <div id="question-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div id="modal-timer-bar"><div id="modal-timer-bar-fill"></div></div>
+      <div id="modal-timer-ring">
+        <span id="modal-timer-text">20</span>
+      </div>
+      <p id="modal-difficulty-badge"></p>
+      <p id="modal-question-text"></p>
+      <div id="modal-choices"></div>
+      <div id="modal-feedback" class="modal-feedback"></div>
+    </div>
+  </div>
+
+  <!-- Event Card Modal -->
+  <div id="event-modal" class="modal-overlay">
+    <div class="modal-box event-modal-box">
+      <div class="event-badge">EVENT CARD</div>
+      <h2 id="event-title"></h2>
+      <p id="event-description"></p>
+      <div id="event-affected"></div>
+      <button id="event-close-btn">CONTINUE</button>
+    </div>
+  </div>
+
+  <!-- Audit Target Modal -->
+  <div id="audit-target-modal" class="modal-overlay">
+    <div class="modal-box">
+      <h2>AUDIT A PLAYER</h2>
+      <p class="audit-target-prompt">Which player do you want to audit?</p>
+      <div id="audit-target-buttons"></div>
+    </div>
+  </div>
+
   <script src="game.js"></script>
 </body>
 </html>

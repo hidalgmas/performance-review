@@ -1,0 +1,32 @@
+[
+  {
+    "id": "e001",
+    "title": "Merger Announced",
+    "description": "All players lose 1 Morale as uncertainty spreads through the organization.",
+    "effect": { "type": "all_players", "stat": "morale", "change": -1 }
+  },
+  {
+    "id": "e002",
+    "title": "Employee of the Quarter",
+    "description": "The current top performer earns a bonus recognition — +1 Performance.",
+    "effect": { "type": "leader_only", "stat": "performance", "change": 1 }
+  },
+  {
+    "id": "e003",
+    "title": "Underdog Spotlight",
+    "description": "The player falling furthest behind gets a morale boost to help them catch up.",
+    "effect": { "type": "lowest_only", "stat": "morale", "change": 2 }
+  },
+  {
+    "id": "e004",
+    "title": "Mandatory Compliance Training",
+    "description": "Everyone except the top performer loses 1 Productivity from the all-day training session.",
+    "effect": { "type": "all_except_leader", "stat": "productivity", "change": -1 }
+  },
+  {
+    "id": "e005",
+    "title": "Budget Surplus",
+    "description": "A surprise windfall at the end of the fiscal quarter — all players gain 1 Productivity.",
+    "effect": { "type": "all_players", "stat": "productivity", "change": 1 }
+  }
+]
