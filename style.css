@@ -953,9 +953,342 @@ button:active:not(:disabled) { transform: translate(3px, 3px) !important; }
   margin-top: 2px;
 }
 
+#gameover-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
 #play-again-btn {
-  display: block;
-  margin: 22px auto 0;
   font-size: 13px;
   padding: 18px 40px;
+}
+#gameover-title-btn {
+  background: var(--bg-warm);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 18px 30px;
+  font-size: 11px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#gameover-title-btn:hover:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--bg-warm-dark);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PLAYER REMOVE BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+
+.player-remove-btn {
+  background: none;
+  color: var(--red);
+  border: 2px solid var(--red);
+  box-shadow: 2px 2px 0 rgba(160,69,69,0.35);
+  padding: 5px 9px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  flex-shrink: 0;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s, color 0.06s;
+}
+.player-remove-btn:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 rgba(160,69,69,0.4);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SETUP SCREEN — HOW TO PLAY BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+
+#howtoplay-open-btn {
+  background: var(--sky-light);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 14px 18px;
+  font-size: 10px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#howtoplay-open-btn:hover:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--sky);
+  color: #fff;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   GAME HEADER — MENU + RULES BUTTONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+#game-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#rules-quick-btn {
+  background: var(--sky-light);
+  color: var(--navy);
+  border: 3px solid var(--navy);
+  box-shadow: 3px 3px 0 var(--navy-dark);
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: 'Press Start 2P', cursive;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#rules-quick-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--navy-dark);
+  background: var(--sky);
+  color: #fff;
+}
+#menu-btn {
+  background: var(--bg-warm);
+  color: var(--navy);
+  border: 3px solid var(--navy);
+  box-shadow: 3px 3px 0 var(--navy-dark);
+  padding: 6px 12px;
+  font-size: 9px;
+  font-family: 'Press Start 2P', cursive;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#menu-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--navy-dark);
+  background: var(--bg-warm-dark);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   MENU MODAL
+   ═══════════════════════════════════════════════════════════════════ */
+
+.menu-modal-box {
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.menu-modal-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: var(--navy);
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+.menu-modal-box button {
+  width: 100%;
+  padding: 14px;
+  font-size: 10px;
+}
+#menu-restart-btn {
+  background: var(--yellow);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#menu-restart-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--yellow-dark);
+}
+#menu-title-btn {
+  background: var(--bg-warm);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#menu-title-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--bg-warm-dark);
+}
+#menu-resume-btn {
+  background: none;
+  color: var(--text-mid);
+  border: 3px solid var(--gray-mid);
+  box-shadow: none;
+  font-size: 9px;
+  transition: transform 0.06s, color 0.06s, border-color 0.06s;
+}
+#menu-resume-btn:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+  transform: translate(1px, 1px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONFIRMATION MODAL
+   ═══════════════════════════════════════════════════════════════════ */
+
+.confirm-modal-box {
+  max-width: 400px;
+}
+#confirm-message {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+.confirm-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+#confirm-cancel-btn {
+  background: var(--bg-warm);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 12px 24px;
+  font-size: 10px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#confirm-cancel-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--bg-warm-dark);
+}
+#confirm-ok-btn {
+  background: var(--red);
+  color: #fff;
+  border: 4px solid var(--navy-dark);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 12px 24px;
+  font-size: 10px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#confirm-ok-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: #8A3535;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   HOW TO PLAY MODAL
+   ═══════════════════════════════════════════════════════════════════ */
+
+.howtoplay-box {
+  max-width: 680px;
+  max-height: 88vh;
+  overflow-y: auto;
+  text-align: left;
+}
+.howtoplay-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: var(--navy);
+  text-align: center;
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.howtoplay-section {
+  margin-bottom: 18px;
+}
+.howtoplay-heading {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  color: var(--navy);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.howtoplay-body {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+.howtoplay-list {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: var(--text-dark);
+  line-height: 1.7;
+  padding-left: 22px;
+}
+.howtoplay-list li { margin-bottom: 2px; }
+.howtoplay-list strong {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  color: var(--navy);
+  letter-spacing: 0.5px;
+}
+#howtoplay-close-btn {
+  display: block;
+  margin: 22px auto 0;
+  background: var(--yellow);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 14px 36px;
+  font-size: 11px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#howtoplay-close-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--yellow-dark);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   QUICK REFERENCE MODAL
+   ═══════════════════════════════════════════════════════════════════ */
+
+.quickref-box {
+  max-width: 520px;
+  text-align: left;
+}
+.quickref-list {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+.quickref-list li { margin-bottom: 2px; }
+#quickref-close-btn {
+  display: block;
+  margin: 0 auto;
+  background: var(--yellow);
+  color: var(--navy);
+  border: 4px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy-dark);
+  padding: 12px 32px;
+  font-size: 10px;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.06s;
+}
+#quickref-close-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy-dark);
+  background: var(--yellow-dark);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   TIEBREAKER NOTE ON PODIUM
+   ═══════════════════════════════════════════════════════════════════ */
+
+.podium-tiebreak-note {
+  font-family: 'VT323', monospace;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-mid);
+  line-height: 1.3;
+  margin-bottom: 6px;
 }

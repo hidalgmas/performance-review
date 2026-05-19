@@ -22,6 +22,7 @@
         <div id="player-inputs"></div>
         <div class="setup-actions">
           <button id="add-player-btn">+ ADD PLAYER</button>
+          <button id="howtoplay-open-btn">HOW TO PLAY</button>
           <button id="start-game-btn">START GAME</button>
         </div>
         <p id="setup-error" class="error"></p>
@@ -33,6 +34,10 @@
       <div id="game-header">
         <span id="round-display">ROUND 1 / 10</span>
         <span id="turn-display">Player's Turn</span>
+        <div id="game-header-actions">
+          <button id="rules-quick-btn">?</button>
+          <button id="menu-btn">MENU</button>
+        </div>
       </div>
 
       <div id="stats-panel"></div>
@@ -59,7 +64,10 @@
       <h1>GAME OVER</h1>
       <p class="subtitle">Final Results</p>
       <div id="final-stats"></div>
-      <button id="play-again-btn">PLAY AGAIN</button>
+      <div id="gameover-actions">
+        <button id="play-again-btn">PLAY AGAIN</button>
+        <button id="gameover-title-btn">RETURN TO TITLE</button>
+      </div>
     </div>
 
   </div>
@@ -95,6 +103,80 @@
       <h2>AUDIT A PLAYER</h2>
       <p class="audit-target-prompt">Which player do you want to audit?</p>
       <div id="audit-target-buttons"></div>
+    </div>
+  </div>
+
+  <!-- Menu Modal -->
+  <div id="menu-modal" class="modal-overlay">
+    <div class="modal-box menu-modal-box">
+      <p class="menu-modal-title">PAUSED</p>
+      <button id="menu-restart-btn">RESTART GAME</button>
+      <button id="menu-title-btn">RETURN TO TITLE</button>
+      <button id="menu-resume-btn">RESUME</button>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirm-modal" class="modal-overlay">
+    <div class="modal-box confirm-modal-box">
+      <p id="confirm-message">Are you sure? Current progress will be lost.</p>
+      <div class="confirm-buttons">
+        <button id="confirm-cancel-btn">CANCEL</button>
+        <button id="confirm-ok-btn">CONFIRM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How To Play Modal (from title screen) -->
+  <div id="howtoplay-modal" class="modal-overlay">
+    <div class="modal-box howtoplay-box">
+      <h2 class="howtoplay-title">HOW TO PLAY</h2>
+      <div class="howtoplay-content">
+        <div class="howtoplay-section">
+          <p class="howtoplay-heading">GOAL</p>
+          <p class="howtoplay-body">Manage your team's Morale, Productivity, and Performance over 10 rounds. The player with the highest combined total wins.</p>
+        </div>
+        <div class="howtoplay-section">
+          <p class="howtoplay-heading">EACH TURN</p>
+          <p class="howtoplay-body">Draw a scenario card, then pick how to respond:</p>
+          <ul class="howtoplay-list">
+            <li><strong>SAFE</strong> — No question. +1 to one stat. Low risk, low reward.</li>
+            <li><strong>KNOWLEDGE</strong> — Answer a question (20s timer). Correct: +2/+1 to stats. Wrong: −1.</li>
+            <li><strong>BOLD</strong> — Harder question (15s timer). Correct: +3. Wrong: −2. High stakes.</li>
+          </ul>
+        </div>
+        <div class="howtoplay-section">
+          <p class="howtoplay-heading">AUDITS</p>
+          <p class="howtoplay-body">Once per game window, skip your turn to challenge another player with a Knowledge question. If they answer correctly, you lose 1 Performance. If they answer wrong, you gain 1 Performance. Audits reset at round 6 — use them or lose them.</p>
+        </div>
+        <div class="howtoplay-section">
+          <p class="howtoplay-heading">EVENTS</p>
+          <p class="howtoplay-body">At rounds 4, 7, and 10, an Event Card fires and affects all players. Events can shift the standings dramatically — no one is safe.</p>
+        </div>
+        <div class="howtoplay-section">
+          <p class="howtoplay-heading">WINNING</p>
+          <p class="howtoplay-body">Highest total stats after round 10 wins. Ties broken by Performance first, then Morale. If all tiebreakers are equal, it's a shared victory.</p>
+        </div>
+      </div>
+      <button id="howtoplay-close-btn">CLOSE</button>
+    </div>
+  </div>
+
+  <!-- Quick Reference Modal (in-game) -->
+  <div id="quickref-modal" class="modal-overlay">
+    <div class="modal-box quickref-box">
+      <h2 class="howtoplay-title">QUICK REFERENCE</h2>
+      <ul class="quickref-list">
+        <li>10 rounds. Highest total stats wins.</li>
+        <li>Each turn: draw a scenario, pick SAFE / KNOWLEDGE / BOLD.</li>
+        <li>SAFE: no question, +1 to one stat.</li>
+        <li>KNOWLEDGE: answer a question (20s). Right = +2/+1. Wrong = −1.</li>
+        <li>BOLD: harder question (15s). Right = +3. Wrong = −2.</li>
+        <li>AUDIT: once per window (resets round 6) — challenge another player.</li>
+        <li>EVENTS: fire at rounds 4, 7, 10. Affect all players.</li>
+        <li>Tiebreaker: highest Performance, then highest Morale.</li>
+      </ul>
+      <button id="quickref-close-btn">CLOSE</button>
     </div>
   </div>
 

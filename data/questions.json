@@ -1,14 +1,86 @@
 [
   {
-    "id": 1,
-    "text": "[PLACEHOLDER] What is the primary purpose of a formal performance review?"
+    "id": "q001",
+    "week": 1,
+    "difficulty": "standard",
+    "topic": "feedback",
+    "text": "[PLACEHOLDER] What is the primary purpose of a formal performance review?",
+    "choices": [
+      "To document employee shortcomings for legal protection",
+      "To align individual goals with organizational objectives",
+      "To determine whether to terminate underperformers",
+      "To compare employees against each other for ranking"
+    ],
+    "correctIndex": 1
   },
   {
-    "id": 2,
-    "text": "[PLACEHOLDER] Which leadership style tends to be most effective during an organizational crisis?"
+    "id": "q002",
+    "week": 2,
+    "difficulty": "standard",
+    "topic": "communication",
+    "text": "[PLACEHOLDER] When delivering critical feedback, which approach is generally most effective?",
+    "choices": [
+      "Deliver feedback publicly to motivate the whole team",
+      "Wait until the annual review to avoid disrupting workflow",
+      "Provide specific, timely, and private feedback with actionable steps",
+      "Frame all feedback as praise to maintain morale"
+    ],
+    "correctIndex": 2
   },
   {
-    "id": 3,
-    "text": "[PLACEHOLDER] How should a manager handle an interpersonal conflict between two direct reports?"
+    "id": "q003",
+    "week": 3,
+    "difficulty": "standard",
+    "topic": "conflict",
+    "text": "[PLACEHOLDER] How should a manager handle an interpersonal conflict between two direct reports?",
+    "choices": [
+      "Let them resolve it themselves without management involvement",
+      "Immediately separate the two employees into different teams",
+      "Take sides with the higher-performing employee",
+      "Facilitate a structured conversation focused on work impact"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "q004",
+    "week": 4,
+    "difficulty": "bold",
+    "topic": "strategy",
+    "text": "[PLACEHOLDER] A competitor just released a product that undercuts your team's current project. What is the most strategically sound response?",
+    "choices": [
+      "Immediately cancel your project to avoid competing",
+      "Ignore the competitor and proceed with the original plan",
+      "Assess differentiation opportunities and pivot scope if justified",
+      "Match the competitor's price point regardless of margin impact"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "q005",
+    "week": 5,
+    "difficulty": "bold",
+    "topic": "retention",
+    "text": "[PLACEHOLDER] Your highest performer tells you they are actively interviewing elsewhere. You cannot offer a raise. What is the boldest and most effective move?",
+    "choices": [
+      "Accept their departure and begin succession planning immediately",
+      "Threaten to downgrade their role if they leave",
+      "Offer expanded responsibilities and increased visibility to leadership",
+      "Immediately escalate to HR and freeze the situation"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "q006",
+    "week": 6,
+    "difficulty": "bold",
+    "topic": "operations",
+    "text": "[PLACEHOLDER] Your team consistently misses deadlines despite working long hours. What is the root cause you should investigate first?",
+    "choices": [
+      "Individual performance issues requiring performance plans",
+      "Scope creep and unclear prioritization of work",
+      "Team morale problems due to poor management style",
+      "Insufficient headcount that requires immediate hiring"
+    ],
+    "correctIndex": 1
   }
 ]

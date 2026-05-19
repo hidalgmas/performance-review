@@ -1,14 +1,29 @@
 [
   {
-    "id": 1,
-    "text": "[PLACEHOLDER] A new company policy requires all employees to attend weekly 3-hour all-hands meetings. Your already stretched team is pushing back hard."
+    "id": "s001",
+    "text": "[PLACEHOLDER] A new company policy requires all employees to attend weekly 3-hour all-hands meetings. Your already stretched team is pushing back hard.",
+    "responses": {
+      "safe": { "label": "Agree to the policy and communicate it to your team", "primaryStat": "morale" },
+      "knowledge": { "label": "Request data on the policy's impact before deciding", "primaryStat": "productivity", "secondaryStat": "performance" },
+      "bold": { "label": "Push back directly to leadership and propose an alternative", "primaryStat": "performance" }
+    }
   },
   {
-    "id": 2,
-    "text": "[PLACEHOLDER] The quarterly budget was cut by 20%. You must decide how to allocate reduced resources across your department before Friday."
+    "id": "s002",
+    "text": "[PLACEHOLDER] The quarterly budget was cut by 20%. You must decide how to allocate reduced resources across your department before Friday.",
+    "responses": {
+      "safe": { "label": "Spread cuts evenly across all projects", "primaryStat": "productivity" },
+      "knowledge": { "label": "Analyze project ROI before reallocating budget", "primaryStat": "performance", "secondaryStat": "morale" },
+      "bold": { "label": "Eliminate low-impact projects entirely to protect top priorities", "primaryStat": "productivity" }
+    }
   },
   {
-    "id": 3,
-    "text": "[PLACEHOLDER] A top-performing employee has asked for a promotion, but there is no budget approved for raises this quarter."
+    "id": "s003",
+    "text": "[PLACEHOLDER] A top-performing employee has asked for a promotion, but there is no budget approved for raises this quarter.",
+    "responses": {
+      "safe": { "label": "Explain the budget situation and promise to revisit next quarter", "primaryStat": "morale" },
+      "knowledge": { "label": "Research what non-monetary recognition options are available", "primaryStat": "morale", "secondaryStat": "productivity" },
+      "bold": { "label": "Go to bat with HR to create a special exception for this employee", "primaryStat": "performance" }
+    }
   }
 ]

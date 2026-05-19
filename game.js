@@ -797,6 +797,43 @@ function showGameOver() {
   document.getElementById("final-stats").innerHTML = podiumHtml + restHtml;
 }
 
+// ─── Navigation & Modals ─────────────────────────────────────────────────────
+
+function returnToTitle() {
+  clearModalTimer();
+  state.players = [];
+  state.currentPlayerIndex = 0;
+  state.currentRound = 1;
+  state.currentScenario = null;
+  state.usedQuestionIds = new Set();
+  state.usedEventIds = new Set();
+  state.auditContext = null;
+
+  document.querySelectorAll(".modal-overlay").forEach(m => m.classList.remove("active"));
+
+  const container = document.getElementById("player-inputs");
+  container.innerHTML = "";
+  document.getElementById("add-player-btn").disabled = false;
+  document.getElementById("setup-error").textContent = "";
+  addPlayerRow();
+  addPlayerRow();
+
+  showScreen("setup");
+}
+
+function showConfirm(message, onConfirm) {
+  document.getElementById("confirm-message").textContent = message;
+  document.getElementById("confirm-modal").classList.add("active");
+
+  const okBtn = document.getElementById("confirm-ok-btn");
+  const handler = () => {
+    okBtn.removeEventListener("click", handler);
+    document.getElementById("confirm-modal").classList.remove("active");
+    onConfirm();
+  };
+  okBtn.addEventListener("click", handler);
+}
+
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
 function totalStats(player) {
@@ -841,5 +878,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".response-btn").forEach(btn => {
     btn.addEventListener("click", () => handleResponse(btn.dataset.choice));
+  });
+
+  // HOW TO PLAY (title screen)
+  document.getElementById("howtoplay-open-btn").addEventListener("click", () => {
+    document.getElementById("howtoplay-modal").classList.add("active");
+  });
+  document.getElementById("howtoplay-close-btn").addEventListener("click", () => {
+    document.getElementById("howtoplay-modal").classList.remove("active");
+  });
+
+  // Quick Reference (in-game "?" button)
+  document.getElementById("rules-quick-btn").addEventListener("click", () => {
+    document.getElementById("quickref-modal").classList.add("active");
+  });
+  document.getElementById("quickref-close-btn").addEventListener("click", () => {
+    document.getElementById("quickref-modal").classList.remove("active");
+  });
+
+  // In-game menu
+  document.getElementById("menu-btn").addEventListener("click", () => {
+    document.getElementById("menu-modal").classList.add("active");
+  });
+  document.getElementById("menu-resume-btn").addEventListener("click", () => {
+    document.getElementById("menu-modal").classList.remove("active");
+  });
+  document.getElementById("menu-restart-btn").addEventListener("click", () => {
+    showConfirm("Restart game? All progress will be lost.", () => {
+      document.getElementById("menu-modal").classList.remove("active");
+      playAgain();
+    });
+  });
+  document.getElementById("menu-title-btn").addEventListener("click", () => {
+    showConfirm("Return to title? All progress will be lost.", () => {
+      document.getElementById("menu-modal").classList.remove("active");
+      returnToTitle();
+    });
+  });
+
+  // Game Over — Return to Title
+  document.getElementById("gameover-title-btn").addEventListener("click", returnToTitle);
+
+  // Confirm modal — cancel button
+  document.getElementById("confirm-cancel-btn").addEventListener("click", () => {
+    document.getElementById("confirm-modal").classList.remove("active");
   });
 });
