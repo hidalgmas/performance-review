@@ -694,7 +694,7 @@ const state = {
   currentPlayerIndex: 0,
   currentRound: 1,
   currentScenario: null,
-  usedQuestionIds: new Set(),
+  questionPools: { easy: [], medium: [], hard: [] },
   usedEventIds: new Set(),
   auditContext: null,
   modalTimer: null
@@ -781,9 +781,9 @@ function startGame() {
   state.players = players;
   state.currentPlayerIndex = 0;
   state.currentRound = 1;
-  state.usedQuestionIds = new Set();
   state.usedEventIds = new Set();
   state.auditContext = null;
+  initQuestionPools();
 
   showScreen("game");
   renderGameScreen();
@@ -794,7 +794,7 @@ function playAgain() {
   state.currentPlayerIndex = 0;
   state.currentRound = 1;
   state.currentScenario = null;
-  state.usedQuestionIds = new Set();
+  state.questionPools = { easy: [], medium: [], hard: [] };
   state.usedEventIds = new Set();
   state.auditContext = null;
 
@@ -945,16 +945,30 @@ function handleResponse(choice) {
   showQuestionModal(question, timeLimit, choice);
 }
 
+function fisherYatesShuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function initQuestionPools() {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    state.questionPools[difficulty] = fisherYatesShuffle(
+      QUESTIONS.filter(q => q.difficulty === difficulty)
+    );
+  }
+}
+
 function pickQuestion(difficulty) {
-  let pool = QUESTIONS.filter(q => q.difficulty === difficulty && !state.usedQuestionIds.has(q.id));
+  let pool = state.questionPools[difficulty];
   if (pool.length === 0) {
     console.warn(`[Performance Review] Question pool exhausted for "${difficulty}". Reshuffling.`);
-    QUESTIONS.filter(q => q.difficulty === difficulty).forEach(q => state.usedQuestionIds.delete(q.id));
-    pool = QUESTIONS.filter(q => q.difficulty === difficulty);
+    pool = fisherYatesShuffle(QUESTIONS.filter(q => q.difficulty === difficulty));
+    state.questionPools[difficulty] = pool;
   }
-  const question = pool[Math.floor(Math.random() * pool.length)];
-  state.usedQuestionIds.add(question.id);
-  return question;
+  return pool.shift();
 }
 
 // ─── Question Modal ───────────────────────────────────────────────────────────
@@ -1412,7 +1426,7 @@ function returnToTitle() {
   state.currentPlayerIndex = 0;
   state.currentRound = 1;
   state.currentScenario = null;
-  state.usedQuestionIds = new Set();
+  state.questionPools = { easy: [], medium: [], hard: [] };
   state.usedEventIds = new Set();
   state.auditContext = null;
 
